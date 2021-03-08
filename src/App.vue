@@ -1,28 +1,50 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Header></Header>
+    <Input v-on:addTodo="addTodo"></Input>
+    <List v-bind:propsdata="todoItems" @removeTodo="removeTodo"></List>
+    <Footer v-on:removeAll="clearAll"></Footer>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from './components/Header'
+import Input from './components/Input'
+import List from './components/List'
+import Footer from './components/Footer'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
+  data() { return { todoItems: [] } },
+  created() {
+    if (localStorage.length > 0) {
+      for (var i=0; i<localStorage.length; i++) {
+        this.todoItems.push(localStorage.key(i));
+      }
+    }
+  },
+  methods: {
+    addTodo() {
+    localStorage.setItem(todoItem, todoItem);
+    this.todoItems.push(todoItem);
+    },
+    clearAll() {
+      localStorage.clear();
+      this.todoItems = [];
+    },
+    removeTodo(todoItem, index) {
+			localStorage.removeItem(todoItem);
+			this.todoItems.splice(index, 1);
+		}
+  },
+  components: { Header, Input, List, Footer }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  body { text-align: center; background-color: #f6f6f8;}
+  #app {  margin: auto; width: 50%; }
+  input { border-style:  groove; width: 200px; }
+  button { border-style: groove; }
+  .shadow { box-shadow: 5px 10px 10px rgba(0,0,0,0.03); }
 </style>
