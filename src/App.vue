@@ -24,7 +24,7 @@ export default {
     }
   },
   methods: {
-    addTodo() {
+    addTodo(todoItem) {
     localStorage.setItem(todoItem, todoItem);
     this.todoItems.push(todoItem);
     },
@@ -43,8 +43,8 @@ export default {
 
 <style>
   body { text-align: center; background-color: #f6f6f8;}
-  #app {  margin: auto; width: 50%; }
-  input { border-style:  groove; width: 200px; }
+  #app {  margin: auto; width: 500px; }
+  input { border-style:  groove; width: 200px; text-align: center;}
   button { border-style: groove; }
   .shadow { box-shadow: 5px 10px 10px rgba(0,0,0,0.03); }
 </style>
