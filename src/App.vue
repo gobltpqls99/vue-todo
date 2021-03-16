@@ -43,8 +43,11 @@ export default {
 
 <style>
   body { text-align: center; background-color: #f6f6f8;}
-  #app {  margin: auto; max-width: 400px; }
+  #app {  margin: auto; width: 50%; transition: all 1s; }
   input { border-style:  groove; width: 200px; text-align: center;}
   button { border-style: groove; }
   .shadow { box-shadow: 5px 10px 10px rgba(0,0,0,0.03); }
+  @media screen and (max-width: 1200px) {
+    #app {width: 400px;}
+  }
 </style>
