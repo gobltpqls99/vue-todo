@@ -43,7 +43,7 @@ export default {
 
 <style>
   body { text-align: center; background-color: #f6f6f8;}
-  #app {  margin: auto; width: 400px; }
+  #app {  margin: auto; max-width: 400px; }
   input { border-style:  groove; width: 200px; text-align: center;}
   button { border-style: groove; }
   .shadow { box-shadow: 5px 10px 10px rgba(0,0,0,0.03); }
